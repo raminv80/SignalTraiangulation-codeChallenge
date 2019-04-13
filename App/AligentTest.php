@@ -36,7 +36,7 @@ class AligentTest extends Api {
                 }
 
                 $result = $this->processSamples($samples);
-                $this->setResponse( $result, count($result['sources']) ? 200: 204 );
+                $this->setResponse( $result, 200 );
                 return;
             } else {
                 $this->setResponse(['error'=>'input is not valid'], 400);
