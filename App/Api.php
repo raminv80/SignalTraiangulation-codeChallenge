@@ -10,7 +10,7 @@ class Api {
     }
 
     function routeRequest() {
-        $this->sendResponse(['error'=> 'resource not found'], 404);
+        $this->setResponse(['error'=> 'resource not found'], 404);
     }
 
     private function setupCORS() {
@@ -27,7 +27,7 @@ class Api {
         return $input;
     }
 
-    function sendResponse($data, $httpCode=200) {
+    function setResponse($data, $httpCode=200) {
         http_response_code($httpCode);
         echo json_encode($data);
     }
