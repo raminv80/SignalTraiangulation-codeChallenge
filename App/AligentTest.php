@@ -60,11 +60,8 @@ class AligentTest extends Api {
         if(!$circle1->isEqual($circle2)) {
             $intersections = $circle1->calcIntersections($circle2);
 
-            if (bccomp($intersections[0]['x'], $intersections[1]['x'], PRECISION) === 0 &&
-                bccomp($intersections[0]['y'], $intersections[1]['y'], PRECISION) === 0) {
-                $sources = [$intersections[0]];
-            } else {
-                $sources = $intersections;
+            foreach($intersections as $intersection) {
+                $sources[] = $intersection->asArray();
             }
         }
 
