@@ -13,7 +13,7 @@ Class Circle {
         defined('PRECISION') or define('PRECISION', 6);
     }
 
-    /*
+    /**
      * Returns true if two circles are the same
      * @param Circle
      * @return Boolean
@@ -23,7 +23,7 @@ Class Circle {
                $this->center->isEqual($otherCircle->center);
     }
 
-    /*
+    /**
      * Returns distance between center of two circles
      * @param Circle
      * @return float
@@ -32,7 +32,7 @@ Class Circle {
         return $this->center->distance($otherCircle->center);
     }
 
-    /*
+    /**
      * Tests if two circle do intersect
      * @param Circle
      * @return Boolean
@@ -43,10 +43,10 @@ Class Circle {
                (bccomp($d, abs($this->radius - $otherCircle->radius), PRECISION) >= 0);
     }
 
-    /*
-     * Calculates intersection of two circles
-     * @param Circle
-     * @return Array intersections
+    /**
+     * Returns possible intersections of two circles
+     * @param Circle $otherCircle
+     * @return array
      */
     public function calcIntersections(Circle $otherCircle) {
         if ($this->doIntersect($otherCircle)) {

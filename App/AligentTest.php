@@ -46,10 +46,10 @@ class AligentTest extends Api {
         parent::routeRequest();
     }
 
-    /*
+    /**
      * finds source point(s) using two unique signals
-     * @param: Array
-     * @output: Array
+     * @param array
+     * @return array
      */
     function processSamples($samples) {
         $sources = [];
