@@ -19,8 +19,9 @@ Class Circle {
      * @return Boolean
      */
     public function isEqual(Circle $otherCircle) {
-        return bccomp($this->radius, $otherCircle->radius, PRECISION) === 0 &&
-               $this->center->isEqual($otherCircle->center);
+        return bccomp($this->distance($otherCircle), 0, PRECISION) ===0 ||
+               (bccomp($this->radius, $otherCircle->radius, PRECISION) === 0 &&
+               $this->center->isEqual($otherCircle->center));
     }
 
     /**
