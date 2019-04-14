@@ -3,4 +3,4 @@ language: php
 php:
   - '7.2'
 
-script: phpunit
+script: phpunit tests/unit/
