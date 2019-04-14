@@ -7,8 +7,8 @@ class Coordinate extends Geometry{
     public $x, $y;
 
     public function __construct($x, $y) {
-        $this->x = $x;
-        $this->y = $y;
+        $this->x = round($x, PRECISION);
+        $this->y = round($y, PRECISION);
     }
 
     /**

@@ -8,8 +8,8 @@ Class Circle extends Geometry {
     public $radius, $center;
 
     public function __construct($x, $y, $radius) {
-        $this->center = new Coordinate($x, $y);
-        $this->radius = $radius;
+        $this->center = new Coordinate(round($x, PRECISION), round($y, PRECISION));
+        $this->radius = round($radius, PRECISION);
     }
 
     /**
@@ -18,8 +18,7 @@ Class Circle extends Geometry {
      * @return Boolean
      */
     public function isEqual(Circle $otherCircle) {
-        return $this->compareValuesWithPrecision($this->distance($otherCircle), 0) === 0 ||
-               ($this->compareValuesWithPrecision($this->radius, $otherCircle->radius) === 0 &&
+        return ($this->compareValuesWithPrecision($this->radius, $otherCircle->radius) === 0 &&
                $this->center->isEqual($otherCircle->center));
     }
 
@@ -39,7 +38,8 @@ Class Circle extends Geometry {
      */
     public function doIntersect(Circle $otherCircle) {
         $d = $this->distance($otherCircle);
-        return $this->compareValuesWithPrecision($this->radius + $otherCircle->radius, $d) >= 0 &&
+        return $this->compareValuesWithPrecision($d, 0) &&
+               $this->compareValuesWithPrecision($this->radius + $otherCircle->radius, $d) >= 0 &&
                $this->compareValuesWithPrecision($d, $this->radius - $otherCircle->radius) >= 0;
     }
 
