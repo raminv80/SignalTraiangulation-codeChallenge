@@ -3,4 +3,4 @@ language: php
 php:
   - '7.2'
 
-script: phpunit tests/unit/
+script: ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/

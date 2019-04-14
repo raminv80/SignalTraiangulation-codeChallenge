@@ -1,4 +1,5 @@
 # Triangulation using only two signals
+[![Circle CI](https://circleci.com/gh/raminv80/date-diff-test/tree/master.svg?style=svg)](https://circleci.com/gh/raminv80/date-diff-test/tree/master)
 
 ## Installation
 ```
@@ -55,5 +56,5 @@ Response will include possible source locations:
  
 ## Run unit tests
 ```
-phpunit tests/unit/
+./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/
 ```
