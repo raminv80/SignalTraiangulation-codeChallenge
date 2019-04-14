@@ -1,7 +1,9 @@
 <?php
 namespace App;
 
-class Coordinate {
+require_once 'App/Geometry.php';
+
+class Coordinate extends Geometry{
     public $x, $y;
 
     public function __construct($x, $y) {
@@ -15,8 +17,8 @@ class Coordinate {
      * @return Boolean
      */
     public function isEqual(Coordinate $coord) {
-        return bccomp($this->x, $coord->x, PRECISION) === 0 &&
-               bccomp($this->y, $coord->y, PRECISION) === 0;
+        return $this->compareValuesWithPrecision($this->x, $coord->x) === 0 &&
+               $this->compareValuesWithPrecision($this->y, $coord->y) === 0;
     }
 
     /**

@@ -1,16 +1,15 @@
 <?php
 namespace App;
 
-require 'App/Coordinate.php';
+require_once 'App/Coordinate.php';
+require_once 'App/Geometry.php';
 
-Class Circle {
+Class Circle extends Geometry {
     public $radius, $center;
 
     public function __construct($x, $y, $radius) {
         $this->center = new Coordinate($x, $y);
         $this->radius = $radius;
-
-        defined('PRECISION') or define('PRECISION', 6);
     }
 
     /**
@@ -19,8 +18,8 @@ Class Circle {
      * @return Boolean
      */
     public function isEqual(Circle $otherCircle) {
-        return bccomp($this->distance($otherCircle), 0, PRECISION) ===0 ||
-               (bccomp($this->radius, $otherCircle->radius, PRECISION) === 0 &&
+        return $this->compareValuesWithPrecision($this->distance($otherCircle), 0) === 0 ||
+               ($this->compareValuesWithPrecision($this->radius, $otherCircle->radius) === 0 &&
                $this->center->isEqual($otherCircle->center));
     }
 
@@ -40,8 +39,8 @@ Class Circle {
      */
     public function doIntersect(Circle $otherCircle) {
         $d = $this->distance($otherCircle);
-        return (bccomp($this->radius + $otherCircle->radius, $d, PRECISION) >= 0) &&
-               (bccomp($d, abs($this->radius - $otherCircle->radius), PRECISION) >= 0);
+        return $this->compareValuesWithPrecision($this->radius + $otherCircle->radius, $d) >= 0 &&
+               $this->compareValuesWithPrecision($d, $this->radius - $otherCircle->radius) >= 0;
     }
 
     /**
