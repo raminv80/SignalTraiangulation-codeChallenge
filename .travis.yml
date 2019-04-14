@@ -3,4 +3,8 @@ language: php
 php:
   - '7.2'
 
-script: ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/
+install:
+  - composer install --dev
+
+script:
+  - ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/

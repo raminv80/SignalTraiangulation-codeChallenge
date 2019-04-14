@@ -1,9 +1,4 @@
 {
-    "autoload": {
-        "classmap": [
-            "src/"
-        ]
-    },
     "require": {
         "ext-json": "*",
         "ext-bcmath": "^7.1"
