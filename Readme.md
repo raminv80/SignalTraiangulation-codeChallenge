@@ -1,5 +1,5 @@
 # Triangulation using only two signals
-[![Circle CI](https://circleci.com/gh/raminv80/date-diff-test/tree/master.svg?style=svg)](https://circleci.com/gh/raminv80/date-diff-test/tree/master)
+[![Build Status](https://travis-ci.org/raminv80/SignalTraiangulation-codeChallenge.svg?branch=master)](https://travis-ci.org/raminv80/SignalTraiangulation-codeChallenge)
 
 ## Installation
 ```
