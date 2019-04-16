@@ -10,7 +10,6 @@ class AligentTest extends Api {
      * Respond codes:
      * 200: if one or two possible source points are found
      * 400: if input data is not valid
-     * 204: if source couldn't be located
      */
     function routeRequest() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === '/') {
