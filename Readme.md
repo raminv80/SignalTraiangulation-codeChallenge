@@ -58,3 +58,5 @@ Response will include possible source locations:
 ```
 ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests/unit/
 ```
+
+Or alternatively ```./vendor/bin/phpunit``` to use phpunit.xml config.
